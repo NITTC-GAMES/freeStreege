@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Enemy_Move : MonoBehaviour
 {
-    public int pattern = 0;
+    public int pattern;
     public Vector3 born;
     public Vector3 through;
     public float speed;
     public float window_X;
     public float window_Y;
     float startFrame;
-    float a;
-    float b;
-    Vector3 deg;
+    [SerializeField]  float a;
+    [SerializeField]  float b;
+    [SerializeField]  Vector3 deg;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class Enemy_Move : MonoBehaviour
         if (pattern == 0)
         {
             a = (born.y - through.y)*2 / (born.x - through.x)*(born.x - through.x);
-            b = through.x * -a;
+            b = (born.x - through.x) / Mathf.Abs(born.x - through.x);
         }
         else
         {
@@ -36,15 +36,16 @@ public class Enemy_Move : MonoBehaviour
     {
         if (pattern == 0)
         {
-            float c = a * transform.position.x + b;
-            deg = new Vector3(1, c, 0) / Mathf.Sqrt(1.0f + c * c) * speed;
-            transform.position += deg;
+            float c = a * transform.position.x + through.x * -a;
+            deg = new Vector3(1, c, 0) * b / Mathf.Sqrt(1 + c * c) * speed;
+            transform.position -= deg;
         }
         else 
         {
-            deg = new Vector3(1, a, 0) * b * speed;
-            transform.position += deg;
+            deg = new Vector3(1, a, 0) * b / Mathf.Sqrt(1 + a * a) * speed;
+            transform.position -= deg;
         }
+        
         if ((this.transform.position.x > window_X ||
              this.transform.position.x < -window_X ||
              this.transform.position.y > window_Y ||
@@ -53,5 +54,6 @@ public class Enemy_Move : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        
     }
 }

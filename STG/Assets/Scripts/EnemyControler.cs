@@ -29,9 +29,10 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Random.seed = (int)Time.time*(int)(Time.deltaTime*100000000000);
+        
         if (Time.fixedTime >= pretime + cooltime + countdown) 
         {
+            Debug.Log("wave!");
             Vector3 s;
             Vector3 t;
             int n;
@@ -43,7 +44,7 @@ public class EnemyControler : MonoBehaviour
                     n = Random.Range(0, 3);
                     if (n == 0)
                     {
-                        s = new Vector3(-1*Window_x,Random.Range(Window_y*500,Window_y*1000)/1000,0);
+                        s = new Vector3(Window_x * -1,Random.Range(Window_y*500,Window_y*1000)/1000,0);
                     }
                     else if (n == 1)
                     {

@@ -394,7 +394,7 @@ Transform:
   m_GameObject: {fileID: 1073809267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 21.2, y: 10, z: 1}
+  m_LocalScale: {x: 17.8, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -442,12 +442,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95f80a3f5793b04e80057b33a0d65f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 3
-  cooltime: 0.1
-  speed: 0.01
-  Window_x: 10.6
+  countdown: 2
+  cooltime: 2
+  speed: 0.05
+  Window_x: 8.9
   Window_y: 5
-  Waves: 50
-  minEnemy: 3
-  maxEnemy: 10
+  Waves: 2
+  minEnemy: 2
+  maxEnemy: 7
   Enemy: {fileID: 7097977737848557371, guid: 0b036f6b22611194f8b28a2c0093a9e9, type: 3}

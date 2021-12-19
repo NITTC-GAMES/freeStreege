@@ -14,7 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ran = Random.Range(1.1f,3.2f);
-        Debug.Log(Time.deltaTime);
+        Random.seed = Random.Range((int)Time.time,(int)(Time.deltaTime * 100000000000));
+        ran = Random.Range(-1.1f,-3.2f);
     }
 }
